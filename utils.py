@@ -248,7 +248,6 @@ def plot_slice_visulization(subj, pred, target, roi_masks, save, slice_idx=[40, 
     plt.tight_layout()
     plt.savefig(save, dpi=300, bbox_inches='tight')
 
-
 def plot_asymmetry(info, subj, ax, save_name=None):
     sns.set_context("paper")
     sns.set_style("darkgrid")
