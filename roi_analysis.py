@@ -99,7 +99,7 @@ def compute_suvr(roi_masks, ref_name, pet, include_diff=True): # {pet1: {roi1: {
         for roi in roi_masks.keys():
             curr_roi_mask = roi_masks[roi]
             suv_roi = (pet_data * curr_roi_mask).sum() / curr_roi_mask.sum() # roi total suv / roi total volume
-            suvr_roi = suv_roi / (suv_ref + 1e-4)
+            suvr_roi = suv_roi / (suv_ref + 1e-5)
             res['truth'][roi] = {'suvr': suvr_roi}
         for p in pet.keys():
             if p == 'truth':
@@ -110,7 +110,7 @@ def compute_suvr(roi_masks, ref_name, pet, include_diff=True): # {pet1: {roi1: {
             for roi in roi_masks.keys():
                 curr_roi_mask = roi_masks[roi]
                 suv_roi = (pet_data * curr_roi_mask).sum() / curr_roi_mask.sum() # roi total suv / roi total volume
-                suvr_roi = suv_roi / (suv_ref + 1e-4)
+                suvr_roi = suv_roi / (suv_ref + 1e-5)
                 res[p][roi] = {'suvr': suvr_roi}
                 if include_diff:
                     if p not in res_diff:
